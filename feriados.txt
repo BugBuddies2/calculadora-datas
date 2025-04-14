@@ -1,0 +1,17 @@
+# Arquivo de Feriados Nacionais
+# Formato: DD/MM/AAAA, Nome do Feriado
+# Um feriado por linha
+# Exemplos:
+
+01/01/2024, Ano Novo
+21/02/2024, Carnaval
+22/02/2024, Quarta-feira de Cinzas
+19/04/2024, Sexta-feira Santa
+21/04/2024, Tiradentes
+01/05/2024, Dia do Trabalho
+30/05/2024, Corpus Christi
+07/09/2024, Independência do Brasil
+12/10/2024, Nossa Senhora Aparecida
+02/11/2024, Finados
+15/11/2024, Proclamação da República
+25/12/2024, Natal
