@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Dias Entre Datas</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Calculadora de Dias Entre Datas</h1>
+        
+        <div class="date-inputs">
+            <div class="date-group">
+                <label for="data-inicio">Data de Início:</label>
+                <input type="date" id="data-inicio" required>
+            </div>
+            
+            <div class="date-group">
+                <label for="data-fim">Data de Término:</label>
+                <input type="date" id="data-fim" required>
+            </div>
+        </div>
+        
+        <button id="calcular">Calcular Diferença</button>
+        
+        <div id="erro" class="error"></div>
+        
+        <div id="resultados" class="results">
+            <p>Período selecionado:</p>
+            <p id="periodo"></p>
+            <p class="result-text">
+                <span id="dias"></span> dias
+            </p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
