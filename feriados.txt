@@ -1,7 +1,6 @@
 # Arquivo de Feriados Nacionais
 # Formato: DD/MM, Nome do Feriado
 # Um feriado por linha
-# Exemplos:
 
 01/01, Ano Novo
 21/02, Carnaval
@@ -15,6 +14,3 @@
 02/11, Finados
 15/11, Proclamação da República
 25/12, Natal
-
-# Adicione seus feriados abaixo seguindo o mesmo formato:
-# DD/MM, Nome do Feriado
