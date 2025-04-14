@@ -4,18 +4,18 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Feriados padrão caso o arquivo não possa ser carregado
     const feriadosPadrao = [
-        new Date(2024, 0, 1),   // Ano Novo
-        new Date(2024, 1, 21),  // Carnaval
-        new Date(2024, 1, 22),  // Quarta-feira de Cinzas
-        new Date(2024, 3, 19),  // Sexta-feira Santa
-        new Date(2024, 3, 21),  // Tiradentes
-        new Date(2024, 4, 1),   // Dia do Trabalho
-        new Date(2024, 4, 30),  // Corpus Christi
-        new Date(2024, 8, 7),   // Independência do Brasil
-        new Date(2024, 9, 12),  // Nossa Senhora Aparecida
-        new Date(2024, 10, 2),  // Finados
-        new Date(2024, 10, 15), // Proclamação da República
-        new Date(2024, 11, 25)  // Natal
+        { dia: 1, mes: 0 },   // Ano Novo (janeiro é mês 0)
+        { dia: 21, mes: 1 },  // Carnaval
+        { dia: 22, mes: 1 },  // Quarta-feira de Cinzas
+        { dia: 19, mes: 3 },  // Sexta-feira Santa
+        { dia: 21, mes: 3 },  // Tiradentes
+        { dia: 1, mes: 4 },   // Dia do Trabalho
+        { dia: 30, mes: 4 },  // Corpus Christi
+        { dia: 7, mes: 8 },   // Independência do Brasil
+        { dia: 12, mes: 9 },  // Nossa Senhora Aparecida
+        { dia: 2, mes: 10 },  // Finados
+        { dia: 15, mes: 10 }, // Proclamação da República
+        { dia: 25, mes: 11 }  // Natal
     ];
     
     // Definir data atual como padrão
@@ -43,6 +43,11 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('data-fim').addEventListener('change', function() {
         verificarDatas();
     });
+    
+    // Função para formatar números com separadores de milhares
+    function formatarNumero(numero) {
+        return numero.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+    }
     
     // Função para carregar feriados do arquivo
     function carregarFeriados() {
@@ -73,12 +78,13 @@ document.addEventListener('DOMContentLoaded', function() {
                         const dataStr = partes[0].trim();
                         const nomeFeriado = partes.length > 1 ? partes[1].trim() : '';
                         
-                        // Converter data do formato DD/MM/AAAA para objeto Date
-                        const [dia, mes, ano] = dataStr.split('/').map(num => parseInt(num, 10));
-                        const dataFeriado = new Date(ano, mes - 1, dia);
+                        // Converter data do formato DD/MM para objeto
+                        const [dia, mes] = dataStr.split('/').map(num => parseInt(num, 10));
+                        // Mês em JavaScript é 0-11, então subtraímos 1
+                        const feriado = { dia, mes: mes - 1 };
                         
                         // Adicionar ao array de feriados
-                        feriados.push(dataFeriado);
+                        feriados.push(feriado);
                     }
                 }
                 
@@ -102,12 +108,12 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Função para verificar se uma data é feriado
     function isFeriado(data) {
-        const dataFormatada = new Date(data.getFullYear(), data.getMonth(), data.getDate());
+        const dia = data.getDate();
+        const mes = data.getMonth(); // getMonth() já retorna 0-11
         
-        return feriados.some(feriado => {
-            const feriadoFormatado = new Date(feriado.getFullYear(), feriado.getMonth(), feriado.getDate());
-            return dataFormatada.getTime() === feriadoFormatado.getTime();
-        });
+        return feriados.some(feriado => 
+            feriado.dia === dia && feriado.mes === mes
+        );
     }
     
     function verificarDatas() {
@@ -168,9 +174,9 @@ document.addEventListener('DOMContentLoaded', function() {
         const dataFimFormatada = dataFim.toLocaleDateString('pt-BR', opcoesFormato);
         
         document.getElementById('periodo').textContent = `De ${dataInicioFormatada} até ${dataFimFormatada}`;
-        document.getElementById('dias-corridos').textContent = `${diferencaEmDias} dias`;
-        document.getElementById('dias-uteis-com-feriados').textContent = `${diasUteisComFeriados} dias`;
-        document.getElementById('dias-uteis').textContent = `${diasUteisSemFeriados} dias`;
+        document.getElementById('dias-corridos').textContent = `${formatarNumero(diferencaEmDias)} dias`;
+        document.getElementById('dias-uteis-com-feriados').textContent = `${formatarNumero(diasUteisComFeriados)} dias`;
+        document.getElementById('dias-uteis').textContent = `${formatarNumero(diasUteisSemFeriados)} dias`;
         document.getElementById('resultados').style.display = 'block';
     }
 }); 
