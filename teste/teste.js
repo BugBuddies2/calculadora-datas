@@ -1,6 +1,6 @@
 // Importar as funções dos módulos
-import { carregarFeriados, isFeriado } from './modules/feriados.js';
-import { calcularDiasUteis, formatarNumero } from './modules/calculoDatas.js';
+import { carregarFeriados, isFeriado } from '../modules/feriados.js';
+import { calcularDiasUteis, formatarNumero } from '../modules/calculoDatas.js';
 
 // Função para criar um elemento de resultado
 function criarElementoResultado(titulo, conteudo) {

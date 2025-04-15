@@ -1,0 +1,75 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    padding: 20px;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 900px;
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+}
+
+h1 {
+    color: #1a73e8;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.resultado-teste {
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-left: 4px solid #1a73e8;
+}
+
+.titulo-teste {
+    color: #1a73e8;
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.conteudo-teste {
+    background-color: white;
+    border-radius: 5px;
+    padding: 15px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.table {
+    margin-bottom: 0;
+}
+
+.badge {
+    font-size: 0.9rem;
+    padding: 5px 10px;
+}
+
+.btn-voltar {
+    margin-top: 20px;
+}
+
+.alert {
+    border-radius: 8px;
+}
+
+.loading {
+    text-align: center;
+    padding: 30px;
+}
+
+.loading i {
+    font-size: 2rem;
+    color: #1a73e8;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+} 
