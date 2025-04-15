@@ -5,36 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculadora de Datas</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        body {
-            background-color: #f8f9fa;
-            padding: 20px;
-        }
-        .container {
-            max-width: 800px;
-            background-color: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 0 15px rgba(0,0,0,0.1);
-        }
-        .form-control {
-            margin-bottom: 15px;
-        }
-        #resultado {
-            margin-top: 20px;
-            padding: 15px;
-            background-color: #f8f9fa;
-            border-radius: 5px;
-        }
-        #erro {
-            color: #dc3545;
-            margin-top: 10px;
-        }
-        .btn-primary {
-            width: 100%;
-            padding: 10px;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
@@ -55,7 +26,33 @@
 
         <div id="erro" class="alert alert-danger d-none"></div>
         
-        <div id="resultado" class="mt-4"></div>
+        <div id="resultado" class="mt-4">
+            <p>Período selecionado:</p>
+            <p id="periodo"></p>
+            
+            <table class="results-table">
+                <thead>
+                    <tr>
+                        <th>Métrica</th>
+                        <th>Dias</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Dias Corridos</td>
+                        <td id="dias-corridos">-</td>
+                    </tr>
+                    <tr>
+                        <td>Dias Úteis + Feriados</td>
+                        <td id="dias-uteis-com-feriados">-</td>
+                    </tr>
+                    <tr>
+                        <td>Dias Úteis</td>
+                        <td id="dias-uteis">-</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 
     <script type="module" src="script.js"></script>
