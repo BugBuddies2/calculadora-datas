@@ -9,6 +9,9 @@ function calcularDiasUteis(dataInicial, dataFinal, considerarFeriados = false, i
     let diasUteis = 0;
     const dataAtual = new Date(dataInicial);
     
+    // Avançar para o próximo dia para não contar o dia inicial
+    dataAtual.setDate(dataAtual.getDate() + 1);
+    
     while (dataAtual <= dataFinal) {
         if (!isFimDeSemana(dataAtual) && (!considerarFeriados || !isFeriado(dataAtual))) {
             diasUteis++;
